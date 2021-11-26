@@ -3,6 +3,8 @@ const ejs = require('ejs')
 var fs = require('fs');
 const DataBase = require('./database')
 const path = require('path')
+const os = require('os');
+
 
 
 //TODO MOVE FROM SYNC TO ASYNC
@@ -138,6 +140,10 @@ module.exports.getRandomAdvert = function (type, collection, cb) {
     DataBase.GetRandomAdvert(type, collection, (res) => {
         cb(res)
     })
+}
+
+module.exports.getGamesDataPath = function () {
+    return path.join(os.homedir(), 'najigre.com-games')
 }
 
 function getListGameData(data, s1, s2) {

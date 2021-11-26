@@ -1,7 +1,7 @@
 const express = require('express')
 var router = express.Router()
 const path = require('path')
-const Helper = require('../scripts/helpers')
+const helpers = require('../scripts/helpers')
 const device = require('express-device');
 const favicon = require('serve-favicon')
 const http = require('http')
@@ -22,9 +22,9 @@ router.use(favicon(path.join(__dirname, '..', 'src', 'public', 'favicon.ico')))
 
 router.get('/', (req, res) => {
     let mobile = req.device.type.toUpperCase() != "DESKTOP"
-    Helper.loadCategories((categories) => {
-        Helper.getFrontPageData(mobile, req.cookies.recentlyPlayed, (bestPicks, bestToday, newest, bestEver) => {
-            Helper.getRandomAdvert("728x90", "kinguin_adverts", (advert) => {
+    helpers.loadCategories((categories) => {
+        helpers.getFrontPageData(mobile, req.cookies.recentlyPlayed, (bestPicks, bestToday, newest, bestEver) => {
+            helpers.getRandomAdvert("728x90", "kinguin_adverts", (advert) => {
                 res.render(path.join(__dirname, '..', "dist", "index"),
                     {
                         bestToday: bestToday,
@@ -35,7 +35,7 @@ router.get('/', (req, res) => {
                         advertLink: advert.link,
                         advertImg: advert.img,
                         advertImgDescription: advert.imgDescription
-                });
+                    });
             })
         })
     })
@@ -43,7 +43,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/privacy-policy', (req, res) => {
-    Helper.loadCategories((categories) => {
+    helpers.loadCategories((categories) => {
         res.render(path.join(__dirname, '..', "dist", "privacy-policy"),
             {
                 categories: categories
@@ -52,7 +52,7 @@ router.get('/privacy-policy', (req, res) => {
 })
 
 router.get('/categories', (req, res) => {
-    Helper.loadCategories((categories) => {
+    helpers.loadCategories((categories) => {
         res.render(path.join(__dirname, '..', "dist", "categoryindex"),
             {
                 categories: categories
@@ -62,8 +62,8 @@ router.get('/categories', (req, res) => {
 });
 
 router.get('/category/:categoryid/:categoryname', (req, res) => {
-    Helper.loadCategories((categories) => {
-        Helper.getCategoryHTML(req.params.categoryid, (html) => {
+    helpers.loadCategories((categories) => {
+        helpers.getCategoryHTML(req.params.categoryid, (html) => {
             res.render(path.join(__dirname, '..', "dist", "categorypage"),
                 {
                     categoryName: req.params.categoryname,
@@ -76,13 +76,12 @@ router.get('/category/:categoryid/:categoryname', (req, res) => {
 
 
 router.get('/category/:categoryid/img/thumb.jpg', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'src', 'data', 'categories', req.params.categoryid, 'thumb.jpg'))
-
+    res.sendFile(path.join(helpers.getGamesDataPath(), 'categories', req.params.categoryid, 'thumb.jpg'))
 })
 
 router.get('/search/', (req, res) => {
-    Helper.loadCategories((categories) => {
-        Helper.getSearchGameHtml(String(req.query.query), (html) => {
+    helpers.loadCategories((categories) => {
+        helpers.getSearchGameHtml(String(req.query.query), (html) => {
             res.render(path.join(__dirname, '..', "dist", "search"),
                 {
                     searchResult: req.query.query,
@@ -93,22 +92,12 @@ router.get('/search/', (req, res) => {
     })
 });
 
-router.get(("/BingSiteAuth.xml"), (req, res) => {
-    let p = path.join(__dirname, '..', "src", "data", "BingSiteAuth.xml");
-    res.sendFile(p);
-})
-
-router.get('/gamearter_srvc/domain-verification.txt', (req, res) => {
-    let p = path.join(__dirname, '..', "src", "data", "domain-verification.txt");
-    res.sendFile(p);
-})
-
 router.get('/index.html', (req, res) => {
     res.redirect('/')
 });
 
 router.get('/ads.txt', (req, res) => {
-    let p = path.join(__dirname, '..', "src", "data", "ads.txt");
+    let p = path.join(__dirname, '..', "src", "public", "ads.txt");
     let suffix = `
 google.com, pub-2504503821144226, RESELLER, f08c47fec0942fa0
 
@@ -162,11 +151,7 @@ google.com, pub-3374111250836391, RESELLER, f08c47fec0942fa0
     requestGAMEDISTRIBUTION.end();
 })
 
-router.get('/index.html', (req, res) => {
-    res.redirect('/')
-});
-
 router.use(express.static(path.join(__dirname, '..', 'src', "public")))
-
+router.use(express.static(path.join(helpers.getGamesDataPath())))
 
 module.exports = router;

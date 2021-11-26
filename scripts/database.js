@@ -1,10 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 const options = { useNewUrlParser: true, useUnifiedTopology: true };
 
-
-module.exports.uri = require('../data').MONGODB_URI_STRING_DEV
-
-
+module.exports.uri = require('../data').MONGODB_URI_STRING_DEV;
 
 module.exports.FindGames = function (filter, cb) {
   MongoClient.connect(module.exports.uri, options, (err, client) => {

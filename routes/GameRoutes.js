@@ -1,9 +1,8 @@
 var express = require('express')
 var router = express.Router()
-const fs = require('fs')
 const path = require('path')
 const DataBase = require('../scripts/database')
-const isDev = require("../app").DEV
+const helpers = require('../scripts/helpers')
 
 router.get('/:gameid/:gameTitle', function (req, res) {
     let id = req.params.gameid
@@ -17,12 +16,10 @@ router.get('/:gameid/:gameTitle', function (req, res) {
         DataBase.IncrementTodayGamePlays(parseInt(id));
         DataBase.SaveIpData(ip)
     })
-
-
 })
 
 router.get('/:gameid/:gameTitle/thumb.jpg', function (req, res) {
-    res.sendFile(path.join(__dirname, '..', 'src', 'data', 'games', 'folders', req.params.gameid, '512x512.jpg'))
+    res.sendFile(path.join(helpers.getGamesDataPath(), 'games', 'folders', req.params.gameid, '512x512.jpg'))
 })
 
 router.get('/:gameid/data.json', function (req, res) {

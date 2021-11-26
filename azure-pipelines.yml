@@ -1,0 +1,50 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+name: Build test
+
+pool:
+  name: Default
+
+jobs:
+- job: NodeTest
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+  - script: |
+      npm install
+      npm test
+    displayName: 'npm install and test'
+
+- job: PositiveTelegram
+  pool: server
+  dependsOn: NodeTest
+  condition: succeeded()
+  steps: 
+  - task: InvokeRESTAPI@1
+    inputs:
+      connectionType: 'connectedServiceName'
+      serviceConnection: 'Telegram-API'
+      method: 'GET'
+      urlSuffix: 'bot$(TELEGRAM_TOKEN)/sendMessage?chat_id=$(TELEGRAM_TO)&text=%3Cb%3ESuccessfully%3C%2Fb%3E+built+najigre.com+on%20%3Cb%3E$(Build.SourceBranchName)%20branch%3C%2Fb%3E+😃✅&parse_mode=HTML'
+      waitForCompletion: 'false'
+
+- job: NegativeTelegram
+  pool: server
+  dependsOn: NodeTest
+  condition: failed()
+  steps: 
+  - task: InvokeRESTAPI@1
+    inputs:
+      connectionType: 'connectedServiceName'
+      serviceConnection: 'Telegram-API'
+      method: 'GET'
+      urlSuffix: 'bot$(TELEGRAM_TOKEN)/sendMessage?chat_id=$(TELEGRAM_TO)&text=%3Cb%3EFailed%3C%2Fb%3E+to+build+najigre.com+on%20%3Cb%3E$(Build.SourceBranchName)%20branch%3C%2Fb%3E+😟❌&parse_mode=HTML'
+      waitForCompletion: 'false'
