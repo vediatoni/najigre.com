@@ -1,0 +1,106 @@
+<style>
+  footer {
+    color: #F6F7F8;
+    font-size: 12px;
+  }
+</style>
+
+<footer class="footer font-small unique-color-dark">
+  <div style="background-color: #6351ce;">
+    <div class="container">
+
+      <!-- Grid row-->
+      <div class="row py-4 d-flex align-items-center">
+
+        <!-- Grid column -->
+        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+          <h6 class="mb-0"><%= __('Povežite se z nami preko socialnih omrežij!') %></h6>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+          <a href="https://www.tiktok.com/@najigre">
+            <i class="fas fa-music white-text mr-4"></i>
+          </a>
+
+          <!--Instagram-->
+          <a href="https://www.instagram.com/najigre/">
+            <i class="fab fa-instagram white-text"> </i>
+          </a>
+
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row-->
+
+    </div>
+  </div>
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left mt-5">
+    <!-- Grid row -->
+    <div class="row mt-3">
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold"><%= __('Pomoč') %></h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <i class="fas fa-unlock-alt mr-3"></i> <a href="/privacy-policy"><%= __('Politika zasebnosti') %></a> </p>
+        <p>
+          <i class="fas fa-envelope mr-3"></i>kontakt@najigre.com</p>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold"><%= __('Izberi jezik') %></h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <div class="form-group">
+          <select class="form-control" onchange="changeLanguage()" id="languageSelector">
+            <option value="nada" disabled selected><%= __('Izberi jezik') %></option>
+            <option value="en"><%= __('angleščina') %></option>
+            <option value="sl"><%= __('slovenščina') %></option>
+            <option value="hr"><%= __('hrvaščina') %></option>
+            <option value="mk"><%= __('makedonščina') %></option>
+            <option value="bs"><%= __('bosanščina') %></option>
+            <option value="sr"><%= __('srbščina') %></option>
+          </select>
+        </div>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a> najigre.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/res/gdpr.js"></script>
+
+<script src="/res/main.js"></script>
+</body>
+
+</html>

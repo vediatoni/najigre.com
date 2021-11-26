@@ -1,0 +1,58 @@
+<%- include('header'); %>
+<div class="container main-panel">
+
+    <div style="text-align: center;" class="pt-4">
+        <a href="<%- advertLink %>" target="_blank" rel="nofollow">
+            <img src="<%- advertImg %>"
+                alt="<%- advertImgDescription %>" style="border-radius: 5px; border: 2px black solid;" class="img-fluid" title="<%- advertImgDescription %>" />
+        </a>
+    </div>
+
+
+    <div class="pb-3">
+        <div class="pt-4 pl-4 pr-4">
+            <p class="categoryHead"><%= __('Najboljše igre') %></p>
+            <hr>
+        </div>
+        <div class="row pr-4 pl-4 pb-4">
+            <%- bestEver %>
+        </div>
+    </div>
+
+    <div class="pb-3">
+        <div class="pt-4 pl-4 pr-4">
+            <p class="categoryHead"><%= __('Top izbire za vas') %> </p>
+            <hr>
+        </div>
+        <div class="row pr-4 pl-4 pb-4">
+            <%- bestPicks %>
+        </div>
+    </div>
+
+    <div class="pb-3">
+        <div class="pt-4 pl-4 pr-4">
+            <p class="categoryHead"><%= __('Top igre danes') %></p>
+            <hr>
+        </div>
+        <div class="row pr-4 pl-4 pb-4">
+            <%- bestToday %>
+        </div>
+    </div>
+
+    <div class="pb-3">
+        <div class="pt-4 pl-4 pr-4">
+            <p class="categoryHead"><%= __('Najnovejše igre') %></p>
+            <hr>
+        </div>
+        <div class="row pr-4 pl-4 pb-4">
+            <%- newest %>
+        </div>
+
+        <div class="text-right">
+            <a class="allGamesLink" href="/category/1/vse"><%= __('Vse igre...') %></a>
+        </div>
+
+    </div>
+</div>
+
+<%- include('footer'); %>

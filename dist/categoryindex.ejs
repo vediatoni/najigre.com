@@ -1,0 +1,15 @@
+<%- include('header'); %>
+<div class="container main-panel mb-3">
+    <div class="pb-4">
+        <div class="pt-4 pl-4 pr-4">
+            <p class="categoryHead"><%= __('Kategorije') %></p>
+            <hr>
+        </div>
+        <div class="row pr-4 pl-4 pb-4">
+            <% for(var i=0; i < categories.length; i++) { %>
+            <%- include('categorycard', {categoryid:categories[i].id,categoryname:categories[i].title}) %>
+            <% } %>
+        </div>
+    </div>
+</div>
+<%- include('footer'); %>

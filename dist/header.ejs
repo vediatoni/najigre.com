@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="msvalidate.01" content="9FF2EAC2C64902CD77F1C9924CE86CE6" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/res/style">
+    <link rel="stylesheet" href="/fontawesome/css/all.css">
+
+    <title> <%= __('Najboljše spletne in mobilne igre') %> | Najigre.com</title>
+    <meta name="description"
+        content=<%= __('Igrajte ogromno najnovejših, najboljših in brezplačnih iger na našem spletnem portalu. Igrajte jih preko računalnika ali pa preko vaših mobilnih naprav brez dodatnih inštalacij') %>>
+
+    <script data-ad-client="ca-pub-4186797143875305" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159949194-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-159949194-1');
+        gtag('config', 'AW-801927443');
+    </script>
+
+    <!-- Event snippet for Website traffic conversion page -->
+    <script>
+        gtag('event', 'conversion', { 'send_to': 'AW-801927443/KPbyCM_18s8BEJPisf4C' });
+    </script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-light" style="background-color: #2EC4B6">
+
+
+        <button class="navbar-toggler navbar-left" type="button" data-toggle="modal" data-target="#searchModal">
+            <span style="color: #F6F7F8 !important; ">
+                <i class="fas fa-lg	 fa-search"></i>
+            </span>
+        </button>
+
+        <a style="color: #F6F7F8;" class="navbar-brand mx-auto" href="/">
+            najigre.com
+        </a>
+
+        <div class=".d-none .d-sm-block .d-xs-block  .d-md-none">
+            <a href="/categories">
+                <button class="navbar-toggler navbar-left" type="button" href="">
+                    <span style="color: #F6F7F8 !important; ">
+                        <i class="fas fa-lg fa-bars"></i>
+                    </span>
+                </button>
+            </a>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-xl  pt-0 pb-0" style="background-color: #FF3366">
+        <div class="collapse navbar-collapse" id="categoryMenu">
+            <ul class="navbar-nav mx-auto">
+                <% for(var i=1; i < 10; i++) { %>
+                <%- include('categorymenulink', {id:categories[i].id,title:categories[i].title}) %>
+                <% } %>
+                <li class="nav-item pr-4">
+                    <a class="nav-link" href="/categories">
+                        <i class="fas fa-angle-double-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <div class=" modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 style="color: #F6F7F8;" class="modal-title"><%= __('Išči igre') %></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/search/" method="get">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label"><%= __('Vnesi ime igre:') %></label>
+                            <input type="text" class="form-control" name="query" placeholder="Jack's adventure"
+                                id="imeIgre">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary float-right">
+                            <span class="pr-2 pl-2"><%= __('Išči') %></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

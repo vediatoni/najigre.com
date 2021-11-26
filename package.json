@@ -1,0 +1,36 @@
+{
+    "name": "najigre",
+    "version": "1.0.0",
+    "description": "game portal",
+    "main": "app.js",
+    "dependencies": {
+        "@types/request-promise": "^4.1.46",
+        "body-parser": "^1.19.0",
+        "compression": "^1.7.4",
+        "cookie-parser": "^1.4.4",
+        "ejs": "^3.0.1",
+        "express": "^4.17.1",
+        "express-device": "^0.4.2",
+        "i18n": "^0.8.5",
+        "jquery": "^3.6.0",
+        "mongodb": "^3.5.2",
+        "multer": "^1.4.2",
+        "request": "^2.88.2",
+        "serve-favicon": "^2.5.0",
+        "sharp": "^0.29.3"
+    },
+    "scripts": {
+        "start": "node app.js",
+        "upload-dev": "wsl sh publish-server.Unix.sh true",
+        "upload-prod": "wsl sh publish-server.Unix.sh false",
+        "admin": "cd admin-app && cd dev && npm start",
+        "admin-publish-win": "cd admin-app && cd dev && tsc && electron-packager . --platform=win32",
+        "admin-publish-linux": "cd admin-app && cd dev && tsc && electron-packager ."
+    },
+    "author": "Antonio Jelic",
+    "license": "ISC",
+    "devDependencies": {
+        "electron-packager": "^14.2.1",
+        "typescript": "^3.8.3"
+    }
+}

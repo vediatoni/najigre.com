@@ -1,0 +1,7 @@
+node_modules/
+admin-app/v1.0.0/
+admin-app/v1.0.1/
+admin-app/v1.0.2/
+admin-app/dev/packed/
+src/data/games/
+src/data/categories/

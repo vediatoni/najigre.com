@@ -1,0 +1,357 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Najigre.com publish games</title>
+
+    <style>
+        /* Absolute Center Spinner */
+        .loading {
+            position: fixed;
+            z-index: 999;
+            height: 2em;
+            width: 2em;
+            overflow: show;
+            margin: auto;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        /* Transparent Overlay */
+        .loading:before {
+            content: '';
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(rgba(20, 20, 20, .8), rgba(0, 0, 0, .8));
+
+            background: -webkit-radial-gradient(rgba(20, 20, 20, .8), rgba(0, 0, 0, .8));
+        }
+
+        /* :not(:required) hides these rules from IE9 and below */
+        .loading:not(:required) {
+            /* hide "loading..." text */
+            font: 0/0 a;
+            color: transparent;
+            text-shadow: none;
+            background-color: transparent;
+            border: 0;
+        }
+
+        .loading:not(:required):after {
+            content: '';
+            display: block;
+            font-size: 10px;
+            width: 1em;
+            height: 1em;
+            margin-top: -0.5em;
+            -webkit-animation: spinner 150ms infinite linear;
+            -moz-animation: spinner 150ms infinite linear;
+            -ms-animation: spinner 150ms infinite linear;
+            -o-animation: spinner 150ms infinite linear;
+            animation: spinner 150ms infinite linear;
+            border-radius: 0.5em;
+            -webkit-box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) 0 1.5em 0 0, rgba(255, 255, 255, 0.75) -1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) -1.5em 0 0 0, rgba(255, 255, 255, 0.75) -1.1em -1.1em 0 0, rgba(255, 255, 255, 0.75) 0 -1.5em 0 0, rgba(255, 255, 255, 0.75) 1.1em -1.1em 0 0;
+            box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) 0 1.5em 0 0, rgba(255, 255, 255, 0.75) -1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) -1.5em 0 0 0, rgba(255, 255, 255, 0.75) -1.1em -1.1em 0 0, rgba(255, 255, 255, 0.75) 0 -1.5em 0 0, rgba(255, 255, 255, 0.75) 1.1em -1.1em 0 0;
+        }
+
+        /* Animation */
+
+        @-webkit-keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @-moz-keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @-o-keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        #gameThumbnail w-100 {
+            width: 100%;
+            height: 512px;
+            object-fit: cover;
+            object-position: 50% 50%;
+        }
+    </style>
+
+
+    <title>admin</title>
+</head>
+
+
+<body>
+    <script>window.$ = window.jQuery = require('jquery');</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+    <div class="loading" id="loader" style="display: none;">Loading&#8230;</div>
+
+    <form class="m-3">
+
+        <div class="alert alert-primary" id="gameLink" role="alert">
+            Retrieving link...
+        </div>
+
+
+        <div class="card mb-5">
+            <div class="text-center">
+                <img src="" width="512" height="512" id="gameThumbnail">
+            </div>
+
+            <div class="card-body" id="gameDescription">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                    content. This content is a little bit longer.</p>
+            </div>
+        </div>
+
+
+
+        <div class="form-group" hidden>
+            <label for="title">Game title:</label>
+            <input type="text" class="form-control" id="title" placeholder="Space Crash" readonlys>
+        </div>
+
+        <div class="form-group" hidden>
+            <label for="description">Description:</label>
+            <input type="text" class="form-control" id="description" placeholder="" readonly>
+        </div>
+
+        <div class="form-group" hidden>
+            <label for="instructions">Instructions:</label>
+            <input type="text" class="form-control" id="instructions" placeholder="" readonly>
+        </div>
+
+        <div class="form-group" hidden>
+            <label for="iframe">Iframe:</label>
+            <input type="text" class="form-control" id="iframe" placeholder="" readonly>
+        </div>
+
+        <div class="form-group" hidden>
+            <label for="thumbnail">Thumbnail (http):</label>
+            <input type="text" class="form-control" id="thumbnail" placeholder="" readonly>
+        </div>
+
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="mobile">
+            <label class="form-check-label" for="mobile">Mobile</label>
+        </div>
+
+        <div class="form-group">
+            <label for="rate">Rate:</label>
+            <input type="number" class="form-control" onkeydown="return false" id="rate" placeholder="" min="0" max="5"
+                step=".1">
+        </div>
+
+
+        <div class="form-group">
+            <label for="categories">Categories (Hold CTRL for multi-select):</label>
+            <select multiple class="form-control" id="categories">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="optionalThumbnailFile">Thumbnail (optional; if not uploaded the thumbnail above will be
+                used):</label>
+            <input type="file" class="form-control-file" id="optionalThumbnailFile">
+        </div>
+
+
+        <button type="button" class="btn btn-primary" onclick="requestPublishGame()">Publish</button>
+        <button type="button" class="btn btn-danger" onclick="skipCurrentGame()">Skip</button>
+    </form>
+
+
+    <script>
+        const { ipcRenderer, shell } = require('electron')
+
+        ipcRenderer.send("requestCategories", {})
+        ipcRenderer.send("getGameData", {})
+
+        ipcRenderer.on('loadCategories', (event, arg) => {
+            let catList = document.getElementById("categories");
+            catList.innerHTML = "";
+            arg.forEach(element => {
+                if (element.title != "Vse") {
+                    catList.innerHTML += `<option value="${element.id}">${element.title}</option>`
+                }
+            });
+        })
+
+        ipcRenderer.on('dataRequiredForApi', (event, arg) => {
+            let title = document.getElementById("title").value;
+            let description = document.getElementById("description").value;
+            let instructions = document.getElementById("instructions").value;
+            let iframe = document.getElementById("iframe").value;
+            let rate = parseFloat(document.getElementById("rate").value);
+            let mobile = document.getElementById("mobile").checked;
+            let categories = $('#categories').val();
+            let thumbnail = document.getElementById("thumbnail").value;
+            let optionalThumbnailFile = document.getElementById("optionalThumbnailFile").files[0]
+
+
+            if (title && description && instructions && iframe && rate && categories.length > 0 && thumbnail) {
+                var formdata = new FormData();
+
+                formdata.append('optionalThumbnailFile', optionalThumbnailFile);
+                formdata.append('thumbnail', thumbnail);
+                formdata.append('title', title);
+                formdata.append('description', description);
+                formdata.append('instructions', instructions);
+                formdata.append('iframe', iframe);
+                formdata.append('rate', rate);
+                formdata.append('mobile', mobile);
+                formdata.append('categories', categories);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', arg.server + '/api/admin/newgame');
+                xhr.setRequestHeader("Authorization", "Basic " + btoa(arg.username + ":" + arg.password))
+                xhr.send(formdata);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState != 4) return;
+                    if (xhr.status != 200) {
+                        ipcRenderer.send("dialog", { title: "Error", message: "Status:" + xhr.status })
+                    } else {
+                        ipcRenderer.send("dialog", { title: "Notification", message: xhr.responseText })
+                        document.getElementById("title").value = "";
+                        document.getElementById("description").value = "";
+                        document.getElementById("instructions").value = "";
+                        document.getElementById("iframe").value = "";
+                        document.getElementById("rate").value = ""
+                        document.getElementById("mobile").value = ""
+                        document.getElementById("categories").value = "";
+                        document.getElementById("thumbnail").value = "";
+                        document.getElementById("optionalThumbnailFile").value = ""
+                        skipCurrentGame();
+                    }
+                };
+            }
+            else {
+                document.getElementById("loader").style.display = "none";
+                ipcRenderer.send("dialog", { title: "Error adding a game", message: "Hey, you, fill out the full form before publishing" })
+            }
+        })
+
+        ipcRenderer.on('gameData', (event, arg) => {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("gameLink").innerHTML = `Link to the game: <a id="clickableLink" href="${arg.link}">${arg.link}</a>`
+
+            document.getElementById("title").value = arg.title;
+            document.getElementById("description").value = arg.description;
+            document.getElementById("instructions").value = arg.instructions;
+            document.getElementById("iframe").value = arg.iframe
+            document.getElementById("mobile").checked = arg.mobile;
+            document.getElementById("thumbnail").value = arg.assets;
+
+            document.getElementById("gameThumbnail").src = arg.assets;
+            document.getElementById("gameDescription").innerHTML = `
+                <h5 class="card-title">${arg.title}</h5>
+                <p class="card-text">Categories: ${arg.categories}</p>
+                <p class="card-text">Tags: ${arg.tags}</p>`
+        })
+
+        $('body').on('click', '#gameLink a', (event) => {
+            event.preventDefault();
+            let link = event.target.href;
+            shell.openExternal(link);
+        });
+
+        function requestPublishGame() {
+            document.getElementById("loader").style.display = "block";
+            ipcRenderer.send("tryConnectingToApi", {});
+        }
+
+        function skipCurrentGame() {
+            document.getElementById("loader").style.display = "block";
+            ipcRenderer.send("newGame", {});
+        }
+
+    </script>
+</body>
+
+</html>

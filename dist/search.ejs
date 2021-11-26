@@ -1,0 +1,16 @@
+<%- include('header'); %>
+
+
+<div class="container main-panel mb-3">
+    <div class="pb-3">
+        <div class="pt-4 pl-4 pr-4">
+            <p class="categoryHead"><%= __('Rezultati za: ') %> <%= searchResult%></p>
+            <hr>
+        </div>
+        <div class="row pr-4 pl-4 pb-4">
+            <%- gamesList %>
+        </div>
+    </div>
+</div>
+
+<%- include('footer'); %>

@@ -1,0 +1,54 @@
+{
+  "name": "najigrepublisher",
+  "version": "2.0.0",
+  "productName": "Najigre publisher",
+  "description": "App for publishing games on najigre.com portal",
+  "main": "dist/App.js",
+  "scripts": {
+    "start": "npm run build && electron .",
+    "build": "webpack --config webpack.config.js",
+    "dist:windows": "npm run build && electron-builder --windows",
+    "dist:linux": "npm run build && electron-builder --linux"
+  },
+  "author": "Antonio Jelic",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jquery": "^3.3.35",
+    "jquery": "^3.5.0"
+  },
+  "devDependencies": {
+    "@types/async": "^3.2.0",
+    "@types/mongodb": "^3.5.11",
+    "@types/request": "^2.48.4",
+    "@types/request-promise": "^4.1.46",
+    "async": "^3.2.0",
+    "electron": "8.2.3",
+    "electron-builder": "^22.5.1",
+    "mongodb": "^3.5.6",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5",
+    "ts-loader": "^7.0.1",
+    "typescript": "^3.8.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "build": {
+    "extends": null,
+    "asar": true,
+    "appId": "com.najigre.publisher",
+    "win": {
+      "icon": "dist/icon.ico",
+      "target": "portable"
+    },
+    "linux": {
+      "icon": "dist/icon.png"
+    },
+    "files": [
+      "dist",
+      "package.json"
+    ],
+    "directories": {
+      "output": "packed"
+    }
+  }
+}

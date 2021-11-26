@@ -1,0 +1,83 @@
+<%- include('header'); %>
+<style>
+    .link {
+        color: #2EC4B6 ;
+    }
+</style>
+
+<div class="container main-panel pt-3 pb-3" style="color: #F6F7F8;">
+    <div>
+        <h1><%= __('Politika zasebnosti') %></h1>
+        <p><%= __('Naša politika o zasebnosti razloži kako, zakaj in katere vaše podatke shranjujemo, ko uporabljate našo spletno stran.') %></p>
+
+        <h5><%= __('Podatki, ki jih zbiramo') %></h5>
+        <p class="mb-0"><%= __('Neosebni podatki:') %></p>
+        <ul>
+            <li><%= __('Podatki o igri, ki jo igrate') %></li>
+            <li><%= __('Kdaj ste obiskali stran') %></li>
+            <li><%= __('Koliko časa igrate določeno igro') %></li>
+            <li><%= __('Rezultat, ki ste ga dosegli v igri (če to igra podpira)') %></li>
+            <li><%= __('Napredek v igri') %></li>
+            <li><%= __('Generalna interakcija s spletno stranjo') %></li>
+        </ul>
+
+        <p class="mb-0"><%= __('Tehnični podatki:') %></p>
+        <ul>
+            <li><%= __('IP naslov') %></li>
+            <li><%= __('Brskalnik, ki ga uporabljate') %></li>
+            <li><%= __('Operacijski sistem, ki ga uporabljate') %></li>
+        </ul>
+
+        <h5><%= __('Kako uporabljamo podatke') %></h5>
+        <p><%= __('Vse podatke, katere shranimo, uporabimo za izboljševanje spletnega portala najigre.com. Z analizo teh podatkov lahko razberemo veliko ključnih stvari katere bi zelo izboljšale vašo izkušnjo in izkušnjo ostalih pri uporabi našega spletnega portala.') %></p>
+
+        <h5><%= __('Otroci in starostna omejitev') %></h5>
+        <p><%= __('Naš spletni portal je namenjen za otroke, ki imajo 13 ali več let starosti. Osebnih podatkov od otrok, ki so mlajši od 13 let zavestno ne zbiramo.') %></p>
+    </div>
+
+    <hr>
+
+    <div>
+        <h1><%= __('Piškotki') %></h1>
+        <h5><%= __('Kaj so piškotki?') %></h5>
+        <p><%= __('Piškotki so majhne datoteke, ki se shranijo na vaš računalnik in vsebujejo podatke o vaši interakciji z spletno stran najigre.com.') %></p>
+
+        <h5><%= __('Kako uporabljamo piškotke?') %></h5>
+        <p class="mb-0"><%= __('Pri najigre.com piškotke uporabljamo:') %></p>
+        <ul>
+            <li><%= __('Da shranimo vašo prejšnjo sejo: s pomočjo prejšnje seje, razberemo kakšne igre so vam najbolj všeč in vam na tak način pokažemo igre, ki se usklajajo z vašimi interesi.') %></li>
+        </ul>
+        <p class="mb-0"><%= __('Partnerji, kot sta Google Analytics in DoubleClick, lahko tudi na vaš računalnik namestijo piškotke katere potrebujejo za delovanje. Za več informacij kako zgornja partnerja shranjujeta vaše podatke lahko vidite tukaj:') %></p>
+        <ul>
+            <li><a class="link" href="https://policies.google.com/privacy?hl=sl"><%= __('Google Analytics') %></a></li>
+            <li><a class="link"  href="https://support.google.com/admanager/answer/2839090?hl=en"><%= __('DoubleClick') %></a> </li>
+        </ul>
+
+        <h5><%= __('Kako izbrisati in upravljati piškotke?') %></h5>
+        <p class="mb-0"><%= __('Kako onemogočiti piškotke na Google Chrome brskalniku:') %></p>
+        <ol>
+            <li><%= __('Klikni na gumb Meni (desni kot zgoraj)') %></li>
+            <li><%= __('Klikni na opcijo »Nastavitve«') %></li>
+            <li><%= __('Pod sekcijo »Zasebnost in varnost« klikni na »Nastavitve mesta«') %></li>
+            <li><%= __('Pod sekcijo »Dovoljenja« klikni na »Piškotki in podatki o spletnih mestih«') %></li>
+            <li><%= __('Onemogoči piškotke s klikom na »Blokiraj piškotke drugih spletnih mest« in »Dovoli spletnim mestom shranjevanje in branje podatkov piškotkov (priporočljivo)«') %></li>
+        </ol>
+
+        <p class="mb-0"><%= __('Kako izbrisati piškotke na Google Chrome brskalniku:') %></p>
+        <ol>
+            <li><%= __('Klikni na gumb Meni (desni kot zgoraj)') %></li>
+            <li><%= __('Klikni na opcijo »Nastavitve«') %></li>
+            <li><%= __('Pod sekcijo »Zasebnost in varnost« klikni na »Nastavitve mesta«') %></li>
+            <li><%= __('Pod sekcijo »Dovoljenja« klikni na »Piškotki in podatki o spletnih mestih«') %></li>
+            <li><%= __('Klikni »Ogled vseh piškotkov in podatkov spletnih mest«') %></li>
+            <li><%= __('S klikom ma gumb »Odstrani vse« boste izbrisali vse piškotke.') %></li>
+        </ol>
+
+        <p><%= __('V piškotih ne hranimo nobenih podatkov, ki bi lahko odkrili vašo identiteto (email, ime..).') %></p>
+        <p><%= __('Če želite več informacij o piškotkih, lahko') %> <a class="link" href="https://www.allaboutcookies.org/"><%= __('kliknete tukaj') %></a>.</a></p>
+    </div>
+
+
+
+</div>
+<%- include('footer'); %>
